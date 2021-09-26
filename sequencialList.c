@@ -14,7 +14,7 @@ int search(int list[], int elem) {
 int main() {
   int list[DIM] = {11, 3, 5, 8, 10, 6, 0, 44, 9};
   int res = search(list, 44);
-  if(res != 1) {
+  if(res != -1) {
     printf("List[%d] <- %d\n", res, list[res]);
   }
   return 0;
