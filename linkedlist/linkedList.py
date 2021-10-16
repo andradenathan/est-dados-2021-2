@@ -27,7 +27,7 @@ class LinkedList:
         raise IndexError("list index out of range")
     return pointer
 
-  def push(self, elem):
+  def append(self, elem):
     if self.head:
       pointer = self.head
       while pointer.next:
