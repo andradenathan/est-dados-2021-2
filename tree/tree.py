@@ -7,8 +7,10 @@ class Node:
   def __str__(self):
     return str(self.data)
 class BinaryTree:
-  def __init__(self, data = None):
-    if data:
+  def __init__(self, data = None, node = None):
+    if node:
+      self.root = node
+    elif data:
       node = Node(data)
       self.root = node
     else:
@@ -44,3 +46,31 @@ class BinaryTree:
     if hright > hleft:
       return hright + 1
     return hleft + 1
+
+class BinarySearchTree(BinaryTree):
+  def insert(self, value):
+    parent = None
+    pointer = self.root
+    while pointer:
+      parent = pointer
+      if value < pointer.data:
+        pointer = pointer.left
+      else:
+        pointer = pointer.right
+    if parent is None:
+      self.root = Node(value)
+    elif value < parent.data:
+      parent.left = Node(value)
+    else:
+      parent.right = Node(value)
+    
+  def search(self, value):
+    return self._search(value, self.root)
+
+  def _search(self, value, node):
+    if node is None:
+      return node
+    if node.data == value:
+      return BinarySearchTree(node)
+    if value < node.data:
+      return self._search(value, node.left)
