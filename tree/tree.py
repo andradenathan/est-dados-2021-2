@@ -1,3 +1,6 @@
+from queue import Queue
+
+ROOT = "root"
 class Node:
   def __init__(self, data):
     self.data = data
@@ -46,6 +49,20 @@ class BinaryTree:
     if hright > hleft:
       return hright + 1
     return hleft + 1
+  
+  def levelorder_traverser(self, node = ROOT):
+    if node == "ROOT":
+      node = self.root
+
+    queue = Queue()
+    queue.push(node)
+    while len(queue):
+      node = queue.pop()
+      if node.left:
+        queue.push(node.left)
+      if node.right:
+        queue.push(node.right)
+      print(node, end=' ')
 
 class BinarySearchTree(BinaryTree):
   def insert(self, value):
@@ -74,3 +91,20 @@ class BinarySearchTree(BinaryTree):
       return BinarySearchTree(node)
     if value < node.data:
       return self._search(value, node.left)
+  
+  def min(self, node = ROOT):
+    if node == ROOT:
+      node = self.root
+    
+    while node.left:
+      node = node.left
+
+    return node.data
+
+  def max(self, node = ROOT):
+    if node == ROOT:
+      node = self.root
+    
+    while node.right:
+      node = node.right
+    return node.data
