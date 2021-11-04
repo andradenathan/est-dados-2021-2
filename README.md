@@ -1,2 +1,8 @@
-# Data Structure
-Learning Data Structure
+# Estrutura de Dados
+Nesta disciplina os seguintes tópicos foram abordados:
+
+-
+-
+-
+-
+-
