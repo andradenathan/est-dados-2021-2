@@ -5,7 +5,7 @@ Nesta disciplina os seguintes tópicos foram abordados:
 -   Filas e pilhas;
 -   Hashing;
 -   Árvores, árvore binária de busca, árvores binárias de busca balanceadas;
--   Programação dinâmica e memoização;
+-   Programação dinâmica e memorização;
 -   Conjuntos disjuntos;
 -   Heaps;
 -   Algoritmos de ordenação.
