@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct Node {
   int data;
   struct Node* next;
@@ -11,6 +12,27 @@ void printLinkedList(Node* node) {
     node = node->next;
   }
   printf("\n");
+}
+
+void pop(Node** head, int elem) {
+  if((*head) == NULL) {
+    printf("Element not in list\n");
+  }
+  else if(elem == (*head)->data) {
+    (*head) = (*head)->next;
+  } 
+  else {
+    Node* ancestor = (*head);
+    Node* ptr = (*head)->next;
+    while(ptr) {
+      if(ptr->data == elem) {
+        ancestor->next = ptr->next;
+        ptr->next = NULL;
+      }
+      ancestor = ptr;
+      ptr = ptr->next;
+    }
+  }
 }
 
 void push(Node** head, int elem) {
@@ -36,6 +58,7 @@ int main(void) {
   push(&node, 15);
   push(&node, 20);
   push(&node, 50);
+  pop(&node, 10);
   printLinkedList(node);
   free(node);
   return 0;
