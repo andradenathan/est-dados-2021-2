@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 typedef struct Node {
   int data;
   struct Node* next;
@@ -30,6 +29,7 @@ void push(Node** head, int elem) {
   }
 }
 
+
 int main(void) {
   Node* node = NULL;
   push(&node, 10);
@@ -37,5 +37,6 @@ int main(void) {
   push(&node, 20);
   push(&node, 50);
   printLinkedList(node);
+  free(node);
   return 0;
 }
