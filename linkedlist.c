@@ -8,22 +8,23 @@ typedef struct Node {
 
 void printLinkedList(Node* node) {
   while(node != NULL) {
-    printf("%d ", node->data);
+    printf("%d -> ", node->data);
     node = node->next;
   }
   printf("\n");
 }
 
-void indexLinkedList(Node** head, int elem) {
+int indexLinkedList(Node** head, int elem) {
   Node* ptr = (*head);
   int i = 0;
   while(ptr) {
     if(ptr->data == elem)
-      printf("Element in pos: %d\n", i);
+      return i;
 
     ptr = ptr->next;
     i++;
   }
+  return -1;
 }
 
 void pop(Node** head, int elem) {
@@ -71,7 +72,9 @@ int main(void) {
   push(&node, 20);
   push(&node, 50);
   pop(&node, 10);
-  indexLinkedList(&node, 50);
+  int id = indexLinkedList(&node, 40);
+  if(id != -1) printf("Element in index: %d\n", id);
+  else printf("Element not in list\n");
   printLinkedList(node);
   free(node);
   return 0;
