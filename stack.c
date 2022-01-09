@@ -39,7 +39,6 @@ int pop(Stack* stack) {
   Node* node = (Node*) malloc(sizeof(Node));
   if(stack->size > 0) {
     node = stack->top;
-    // printf("%d\n", node->data);
     stack->top = stack->top->next;
     stack->size--;
     return stack->top->data;
