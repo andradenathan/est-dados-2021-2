@@ -41,6 +41,7 @@ int pop(Stack* stack) {
     node = stack->top;
     stack->top = stack->top->next;
     stack->size--;
+    free(node);
     return stack->top->data;
   }
   printf("Stack is empty\n");
@@ -65,6 +66,7 @@ int main(void) {
   push(stack, 48);
   print(stack);
   printf("----- POPPING ELEMENT -----\n");
+  pop(stack);
   pop(stack);
   print(stack);
   printf("----- PEEKING ELEMENT -----\n");
