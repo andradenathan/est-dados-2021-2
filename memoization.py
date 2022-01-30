@@ -1,3 +1,5 @@
+import sys
+
 memoization = {}
 
 def factorial(n):
@@ -14,5 +16,6 @@ def factorial(n):
 
   return factorial_of_n
 
+sys.setrecursionlimit(2000)
 
-print(factorial(800))
+print(factorial(1000))
