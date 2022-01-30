@@ -19,7 +19,8 @@ class BinaryTree:
         print(node.elem)
         if node.right:
             self.symmetric_traversal(node.right)
-                
+    
+    #TODO: need to implement the preorder traversal and the postorder traversal
 
 tree = BinaryTree()
 root = TNode(4)
